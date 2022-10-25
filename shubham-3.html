@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!------CSS------>
+    <style>
+      /*-----------Font used------------*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');
+        *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body{
+          background: #fff;
+        }
+        
+        ::selection{
+          color: #fff;
+          background: #6990F2;
+        }
+        
+        .main-container{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          height: 100vh;
+        }
+        .wrapper{
+          width: 30rem;
+          background: #1d3557;
+          border-radius: 12px;
+          padding: 30px;
+          box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 35rem;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+        .wrapper header{
+          color: #6990F2;
+          font-size: 1.7rem;
+          font-weight: 800;
+          text-align: center;
+          font-family: 'Manrope', sans-serif;
+          margin-bottom: 1px;
+          color: #fff;
+        }
+        .wrapper hr{
+            background-color: #fff;
+            height: 2px;
+            border: #fff 1px solid;
+        }
+        .wrapper form{
+          height: 10rem;
+          display: flex;
+          cursor: pointer;
+          margin: 20px 0;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: 5px;
+          border: 2px dashed #FFC801; 
+          width: 70%;
+        }
+        form :where(i, p){
+          color: #033F47;
+        }
+        form i{
+          font-size: 50px;
+        }
+        form p{
+          margin-top: 15px;
+          font-size: 16px;
+        }
+        
+        section .row{
+          margin-bottom: 10px;
+          background: #E9F0FF;
+          list-style: none;
+          padding: 15px 20px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        section .row i{
+          color: #6990F2;
+          font-size: 30px;
+        }
+        section .details span{
+          font-size: 14px;
+        }
+        .progress-area .row .content{
+          width: 100%;
+          margin-left: 15px;
+        }
+        .progress-area .details{
+          display: flex;
+          align-items: center;
+          margin-bottom: 7px;
+          justify-content: space-between;
+        }
+        .progress-area .content .progress-bar{
+          height: 6px;
+          width: 100%;
+          margin-bottom: 4px;
+          background: #fff;
+          border-radius: 30px;
+        }
+        .content .progress-bar .progress{
+          height: 100%;
+          width: 0%;
+          background: #6990F2;
+          border-radius: inherit;
+        }
+        .uploaded-area{
+          max-height: 232px;
+          overflow-y: scroll;
+        }
+        .uploaded-area.onprogress{
+          max-height: 150px;
+        }
+        .uploaded-area::-webkit-scrollbar{
+          width: 0px;
+        }
+        .uploaded-area .row .content{
+          display: flex;
+          align-items: center;
+        }
+        .uploaded-area .row .details{
+          display: flex;
+          margin-left: 15px;
+          flex-direction: column;
+        }
+        .uploaded-area .row .details .size{
+          color: #404040;
+          font-size: 11px;
+        }
+        .uploaded-area i.fa-check{
+          font-size: 16px;
+        }
+        .main-container{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+            font-family: 'Manrope', sans-serif;
+            font-size: 5rem;
+        }
+        .main-container .right-side{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-container .left-side img{
+            height: 35rem;
+        }
+        .about-book{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-book{
+            margin-top: 1rem;
+            margin-bottom: -7rem;
+        }
+        .about-book input , textarea{
+            height: 2.3rem;
+            padding: .8rem 7px;
+            margin: .5rem;
+            border: none;
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        .about-book textarea{
+          height: 7rem;
+          text-align: start;
+        }
+        .post{
+            width: 100%;
+            height: 2.3rem;
+            border: none;
+            border: none;
+            background-color: #033F47;
+            color: #FFC801;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            border-radius: 5px;
+            border: 1px #FFC801 solid;
+        }
+        .upload{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+      /*----------Responsive code-------------*/
+        
+        @media(max-width:1120px){
+          .wrapper{
+            width: 27rem;
+            padding: 20px;
+            height: 35rem;
+          }
+          .main-container .left-side img{
+            height: 30rem;
+          }
+        }
+        @media(max-width:989px){
+          .wrapper{
+            width: 24rem;
+            height: 33rem;
+          }
+          .main-container .left-side img{
+            height: 28rem;
+          }
+        }
+        @media(max-width:907px){
+          .wrapper{
+            width: 22rem;
+            height: 32rem;
+          }
+          .main-container .left-side img{
+            height: 26rem;
+          }
+        }
+        @media(max-width:769px){
+          .main-container{
+            flex-direction: column;
+            margin: 10rem 0;
+          }
+          .wrapper{
+            width: 22rem;
+            height: 32rem;
+          }
+          .main-container .left-side img{
+            height: 22rem;
+          }
+        }
+        @media(max-width:365px){
+          .main-container{
+            flex-direction: column;
+            margin: 8rem 0;
+          }
+          .wrapper{
+            width: 21rem;
+            height: 32rem;
+          }
+          .main-container .left-side img{
+            height: 18rem;
+          }
+          .wrapper form{
+            height: 8rem;
+          }
+        }
+        @media(max-width:350px){
+          .main-container{
+            flex-direction: column;
+            margin: 7rem 0;
+          }
+          .wrapper{
+            width: 18.5rem;
+            height: 32rem;
+          }
+          .main-container .left-side img{
+            height: 18rem;
+          }
+          .wrapper form{
+            height: 8rem;
+          }
+        }
+        body{
+            background-color: #90e0ef;
+        }
+    </style>
+</head>
+<body>
+    <!-- <nav>
+        
+    </nav> -->
+    <div class="main-container">
+
+        <div class="right-side">
+            <div class="wrapper">
+                <header>File upload</header>
+                <hr>
+                <div class="about-book">
+                    <input class="name" type="text" placeholder="Name of the file....">
+                    <!-- <input class="about" type="text" placeholder=""> -->
+                    <textarea placeholder="Write about file here...."  name="Text1" cols="40" rows="4"></textarea><br>
+                </div>
+                <div class="upload">
+                    <form action="#">
+                        <input class="file-input" type="file" name="file" hidden>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Browse File to Upload</p>
+                      </form>
+                </div>
+                 <button class="post">Post</button>
+                <section class="progress-area"></section>
+                <section class="uploaded-area"></section>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+const form = document.querySelector("form"),
+fileInput = document.querySelector(".file-input"),
+progressArea = document.querySelector(".progress-area"),
+uploadedArea = document.querySelector(".uploaded-area");
+
+form.addEventListener("click", () =>{
+  fileInput.click();
+});
+
+fileInput.onchange = ({target})=>{
+  let file = target.files[0];
+  if(file){
+    let fileName = file.name;
+    if(fileName.length >= 12){
+      let splitName = fileName.split('.');
+      fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
+    }
+    uploadFile(fileName);
+  }
+}
+
+function uploadFile(name){
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "php/upload.php");
+  xhr.upload.addEventListener("progress", ({loaded, total}) =>{
+    let fileLoaded = Math.floor((loaded / total) * 100);
+    let fileTotal = Math.floor(total / 1000);
+    let fileSize;
+    (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
+    let progressHTML = `<li class="row">
+                          <i class="fas fa-file-alt"></i>
+                          <div class="content">
+                            <div class="details">
+                              <span class="name">${name} • Uploading</span>
+                              <span class="percent">${fileLoaded}%</span>
+                            </div>
+                            <div class="progress-bar">
+                              <div class="progress" style="width: ${fileLoaded}%"></div>
+                            </div>
+                          </div>
+                        </li>`;
+    uploadedArea.classList.add("onprogress");
+    progressArea.innerHTML = progressHTML;
+    if(loaded == total){
+      progressArea.innerHTML = "";
+      let uploadedHTML = `<li class="row">
+                            <div class="content upload">
+                              <i class="fas fa-file-alt"></i>
+                              <div class="details">
+                                <span class="name">${name} • Uploaded</span>
+                                <span class="size">${fileSize}</span>
+                              </div>
+                            </div>
+                            <i class="fas fa-check"></i>
+                          </li>`;
+      uploadedArea.classList.remove("onprogress");
+      uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML);
+    }
+  });
+  let data = new FormData(form);
+  xhr.send(data);
+}
+    </script>
+</body>
+</html>
